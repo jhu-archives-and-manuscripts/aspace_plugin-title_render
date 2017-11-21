@@ -66,6 +66,11 @@ ArchivesSpacePublic::Application.config.after_initialize do
           if emph.attr("render").empty?
             emph.attr("class", "emph render-none")
 
+            # render="doublequote"
+          elsif emph.attr("render") === "doublequote"
+            emph.removeAttr("render")
+            emph.prependText('"').appendText('"')
+
             # render="nonproport": <code>
           elsif emph.attr("render") === "nonproport"
             emph.attr("class", "emph render-#{emph.attr("render")}")
