@@ -16,7 +16,9 @@ of the page would be blank.
 
 ### Proper rendering of <title render="italics"> and <title render="doublequote">
 
-MixedContentParser::parse() has code indicating that <title> tags are meant to be handled, but the document is stripped of <title> tags in the "clean" step.
+MixedContentParser::parse() has code indicating that <title> tags are meant to be handled, but the <title> tags are
+stripped out of the document before they can be transformed.
+
 - Override MixedContentParser::parse() to
   - Fix "clean" step to leave "title" tag and its "render" attribute;
   - Add logic to handle render="doublequote"
@@ -29,12 +31,17 @@ The text nodes render (i.e., they are visible), but do not respect the value of 
 
 NB: It would be more involved to make this work within the JavaScript templating environment used for the component tree.
 
+### Strip mixed content title tags from browser tab/window titles
+
+The tags from ArchivesSpace objects with mixed content (tags) in their titles were displaying in the browser tab 
+or window heading from the <html><head><title> element. These are now stripped for any view that has a title pane.
+
 ---
 
 ## Activate the plugin
 - Install the plugin:
   - Clone this repository into the plugins/title_render directory; or
-  - Unzip the release zip into the plugins/title_render directory.
+  - Unzip/untar the release zip/tar into the plugins/title_render directory.
 
 - Initialize the plugin (to install the required Ruby gem):
 

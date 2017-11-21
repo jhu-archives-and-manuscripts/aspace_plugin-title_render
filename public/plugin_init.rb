@@ -45,6 +45,7 @@ ArchivesSpacePublic::Application.config.after_initialize do
       cleaned_content = org.jsoup.Jsoup.clean(content, base_uri,
                                               org.jsoup.safety.Whitelist
                                                   .relaxed.addTags("title", "emph", "lb")
+                                                  .addAttributes("span", "class")
                                                   .addAttributes("emph", "render")
                                                   .addAttributes("title", "render"),
                                                   d.outputSettings())
@@ -88,7 +89,6 @@ ArchivesSpacePublic::Application.config.after_initialize do
     end
 
   end
-
 
 end
 
