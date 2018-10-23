@@ -25,7 +25,7 @@ stripped out of the document before they can be transformed.
 
 This works wherever MixedContentParser::parse() is used.
 
-### Render text nodes withing <title> elements in component tree
+### Render text nodes within <title> elements in component tree
 
 The text nodes render (i.e., they are visible), but do not respect the value of the "render" attribute (i.e., they are not styled).
 
